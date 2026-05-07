@@ -46,14 +46,21 @@ JWT_EXPIRATION_TIME_MS=86400000
 
 > The `.env` file is gitignored and will never be committed. You must create it manually.
 
-### 3. Start the full stack
+### 3. Create the database dump
+Export your local PostgreSQL database into a `backup.sql` file and place it inside `DocumentRoutingSystem-Infrastructure/`:
+```bash
+pg_dump -U postgres -d routingSystemDB > backup.sql
+```
+> ⚠️ `backup.sql` is gitignored and will never be committed. You must generate it from your local database manually.
+
+### 4. Start the full stack
 
 ```bash
 cd DocumentRoutingSystem-Infrastructure
 docker-compose up --build
 ```
 
-### 4. Stop the stack
+### 5. Stop the stack
 
 ```bash
 docker-compose down
